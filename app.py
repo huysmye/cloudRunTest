@@ -7,7 +7,7 @@ from google.cloud import bigquery
 app = Flask(__name__)
 
 client = bigquery.Client()
-table_id = "cardealership-256711:arduino_raspberry.apiData"
+table_id = "cardealership-256711.arduino_raspberry.apiData"
 
 @app.route('/')
 def hello_world():
