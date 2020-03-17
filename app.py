@@ -25,7 +25,12 @@ def testdata():
 @app.route('/db', methods = ['POST', 'GET', 'DELETE'])
 def db():
     if request.method == "GET":
-        return 'getting all the data from the db'
+        data = []
+        query = "SELECT * FROM `cardealership-256711.arduino_raspberry.apiData`"
+        query_job = client.query(query)
+        for row in query_job:
+            data.append(row)
+        return '{}'.format(data)
 
     if request.method == "POST":
         data = request.json
